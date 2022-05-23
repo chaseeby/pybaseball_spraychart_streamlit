@@ -5,12 +5,13 @@ import pybaseball
 from pybaseball import statcast_batter, spraychart, league_batting_stats, league_pitching_stats
 from datetime import date,timedelta
 
-
 st.title("MLB BATTING STATS")  #Title Of Report
 
 # Date selector for grabbing statcast data from pybaseball
-start_date = st.sidebar.date_input('Start date',date.today() - timedelta(days=1))
-end_date = st.sidebar.date_input('End date',date.today() - timedelta(days=1))
+today = date.today() - timedelta(days=1)
+today = today.astimezone(timezone('US/Pacific'))
+start_date = st.sidebar.date_input('Start date',today)
+end_date = st.sidebar.date_input('End date',today)
 start_dt = start_date.strftime('%Y-%m-%d')
 end_dt = end_date.strftime('%Y-%m-%d')
 
@@ -58,15 +59,13 @@ st.write('You selected:', dic[option] + ' MLB ID: ' + str(option))
 
 st.dataframe(batting[batting['mlbID'] == option])  # Same as st.write(df)
     
-#player_statcast = statcast_data[statcast_data['batter']==option]
-
 data = statcast_batter(start_dt, end_dt, int(option))
 
 player_batting = convert_df(data)
 st.download_button(
      label="Download STATCAST DATA as CSV",
      data=player_batting,
-     file_name= 'PLAYER_STATCAST_BATTING_'+start_dt + '_to_'+ end_dt + '.csv',
+     file_name= 'PLAYER_STATCAST_BATTING_'+ start_dt + '_to_'+ end_dt + '.csv',
      mime='text/csv',
  )
 
