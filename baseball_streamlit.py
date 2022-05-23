@@ -21,7 +21,7 @@ pybaseball.cache.enable()
 batting = league_batting_stats.batting_stats_range(start_dt=start_dt, end_dt=end_dt)
 batting = league_batting_stats.batting_stats_range(start_dt=start_dt, end_dt=end_dt)
 batter_name_id = batting[['Name','mlbID']]
-batter_name_id['Name'] = batter_name_id['Name'].str.decode(encoding = 'UTF-8')
+#batter_name_id['Name'] = batter_name_id['Name'].str.decode(encoding = 'UTF-8')
 
 @st.cache
 def convert_df(df):
