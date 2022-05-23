@@ -56,7 +56,7 @@ stadium = st.sidebar.selectbox(
      'phillies','pirates','rangers','rays','red_sox','reds','rockies','royals','tigers','twins','white_sox','yankees')
      )
 
-st.write('You selected:', dic[option].decode('utf8') + ' MLB ID: ' + str(option))
+st.write('You selected:', dic[option] + ' MLB ID: ' + str(option))
 
 st.dataframe(batting[batting['mlbID'] == option])  # Same as st.write(df)
     
