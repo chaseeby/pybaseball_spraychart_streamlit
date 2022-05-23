@@ -9,7 +9,7 @@ from pytz import timezone
 st.title("MLB BATTING STATS")  #Title Of Report
 
 # Date selector for grabbing statcast data from pybaseball
-today = date.today() - timedelta(days=1)
+today = date.today() - timedelta(days=2)
 start_date = st.sidebar.date_input('Start date',today)
 end_date = st.sidebar.date_input('End date',today)
 start_dt = start_date.strftime('%Y-%m-%d')
@@ -56,7 +56,7 @@ stadium = st.sidebar.selectbox(
      'phillies','pirates','rangers','rays','red_sox','reds','rockies','royals','tigers','twins','white_sox','yankees')
      )
 
-st.write('You selected:', dic[option] + ' MLB ID: ' + str(option))
+st.write('You selected:', dic[option].encode('latin1').decode('utf8') + ' MLB ID: ' + str(option))
 
 st.dataframe(batting[batting['mlbID'] == option])  # Same as st.write(df)
     
