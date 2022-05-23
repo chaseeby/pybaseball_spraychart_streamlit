@@ -10,7 +10,6 @@ st.title("MLB BATTING STATS")  #Title Of Report
 
 # Date selector for grabbing statcast data from pybaseball
 today = date.today() - timedelta(days=1)
-today = today.astimezone(timezone('US/Pacific'))
 start_date = st.sidebar.date_input('Start date',today)
 end_date = st.sidebar.date_input('End date',today)
 start_dt = start_date.strftime('%Y-%m-%d')
