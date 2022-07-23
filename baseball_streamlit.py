@@ -71,14 +71,14 @@ st.download_button(
      file_name= 'PLAYER_STATCAST_BATTING_'+ start_dt + '_to_'+ end_dt + '.csv',
      mime='text/csv',
  )
-tab1, tab2,  = st.tabs(["Spray Chart", "Tab2"])
+tab1, tab2,  = st.tabs(["Spray Chart", "Heat Map"])
 with tab1:
      sprayplot = spraychart(data, stadium, title=dic[option]+ ': '+start_dt + ' to '+ end_dt)
      st.write('You selected:',  stadium.capitalize() + ' home field')
      st.pyplot(sprayplot.figure)
 
 with tab2:
-     fig = plt.figure(figsize=(5, 5))
+     fig = plt.figure(figsize=(4, 4))
      sns.scatterplot(data=data, x='plate_x',y='plate_z', hue='type')
      st.pyplot(fig)
 
