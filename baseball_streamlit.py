@@ -78,7 +78,7 @@ with tab1:
      st.pyplot(sprayplot.figure)
 
 with tab2:
-     fig = plt.figure(figsize=(10, 4))
+     fig = plt.figure(figsize=(5, 5))
      sns.scatterplot(data=data, x='plate_x',y='plate_z', hue='type')
      st.pyplot(fig)
 
