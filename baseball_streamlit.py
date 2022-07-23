@@ -78,7 +78,8 @@ with tab1:
      st.pyplot(sprayplot.figure)
 
 with tab2:
-     heatmap = sns.scatterplot(data=data, x='plate_x',y='plate_z', hue='type')
-     
+     fig = plt.figure(figsize=(10, 4))
+     sns.scatterplot(data=data, x='plate_x',y='plate_z', hue='type')
+     st.pyplot(fig)
 
 
