@@ -23,7 +23,7 @@ pybaseball.cache.enable()
 batting = league_batting_stats.batting_stats_range(start_dt=start_dt, end_dt=end_dt)
 batting = league_batting_stats.batting_stats_range(start_dt=start_dt, end_dt=end_dt)
 batter_name_id = batting[['Name','mlbID']]
-#batter_name_id['Name'] = batter_name_id['Name'].str.decode(encoding = 'UTF-8')
+
 
 @st.cache
 def convert_df(df):
@@ -79,7 +79,7 @@ with tab1:
 
 with tab2:
      fig = plt.figure(figsize=(4, 4))
-     sns.scatterplot(data=data, x='plate_x',y='plate_z', hue='type')
+     sns.scatterplot(data=data, x='plate_x',y='plate_z', hue='type', alpha=0.2)
      st.pyplot(fig)
 
 
