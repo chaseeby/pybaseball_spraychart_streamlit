@@ -79,7 +79,7 @@ with tab1:
 
 with tab2:
      fig = plt.figure(figsize=(4, 4))
-     sns.scatterplot(data=data, x='plate_x',y='plate_z', hue='type', alpha=0.2)
+     sns.scatterplot(data=data, x='plate_x',y='plate_z', hue='type', alpha=0.3)
      st.pyplot(fig)
 
 
