@@ -2,6 +2,8 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import pybaseball
+import matplotlib.pyplot as plt
+import seaborn as sns
 from pybaseball import statcast_batter, spraychart, league_batting_stats, league_pitching_stats
 from datetime import date,timedelta
 from pytz import timezone
@@ -76,6 +78,7 @@ with tab1:
      st.pyplot(sprayplot.figure)
 
 with tab2:
-     st.text("test")
+     heatmap = sns.scatterplot(data=data, x='plate_x',y='plate_z', hue='type')
+     
 
 
